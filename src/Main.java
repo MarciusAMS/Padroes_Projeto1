@@ -11,15 +11,15 @@ public class Main {
         PlataformaEAD plataforma = new PlataformaEAD();
 
         // 2. Usando a Facade para criar alunos e módulos
-        Aluno aluno1 = plataforma.criarAluno("João Silva", "joao@email.com", "111.111.111-11");
-        Aluno aluno2 = plataforma.criarAluno("Maria Souza", "maria@email.com", "222.222.222-22");
-        plataforma.criarModulo("Java Básico", "Introdução à linguagem Java.");
-        plataforma.criarModulo("Design Patterns", "Padrões de projeto GoF.");
+        Aluno aluno1 = plataforma.criarAluno(1,"João Silva", "joao@email.com");
+        Aluno aluno2 = plataforma.criarAluno(2,"Maria Souza", "maria@email.com" );
+        plataforma.criarModulo(3,"Java Básico", 4);
+        plataforma.criarModulo(4, "Design Patterns", 5);
 
         System.out.println("\n--- Demonstração do Flyweight ---");
         // 3. Adicionando conteúdo. Note como o conteúdo reutilizável é tratado.
-        plataforma.adicionarConteudoAoModulo(1, "Vídeo de Instalação", "http://videos.com/instalar-jdk");
-        plataforma.adicionarConteudoAoModulo(2, "Vídeo de Instalação", "http://videos.com/instalar-jdk"); // <-- Reutilização!
+        plataforma.adicionarConteudoAoModulo(1, "Vídeo de Instalação", "aaaaaaaaa","redes","http://videos.com/instalar-jdk");
+        plataforma.adicionarConteudoAoModulo(2, "Vídeo de Instalaçaão", "bbbbbbbbbbbb","radios","http://videos.com/instalar-jdk"); // <-- Reutilização!
 
         System.out.println("\n--- Demonstração do Observer ---");
         // 4. Matriculando um aluno. Isso vai disparar o Observer de Notificação.

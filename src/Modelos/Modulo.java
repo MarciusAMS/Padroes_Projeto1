@@ -6,13 +6,15 @@ import java.util.List;
 public class Modulo {
     private int id;
     private String titulo;
+    private float cargaHoraria;
     private List<Conteudo> conteudos = new ArrayList<>();
     private List<Aluno> alunosMatriculados = new ArrayList<>();
 
     // --- CONSTRUTOR ---
-    public Modulo(int id, String titulo) {
+    public Modulo(int id, String titulo, float cargaHoraria) {
         this.id = id;
         this.titulo = titulo;
+        this.cargaHoraria = cargaHoraria;
     }
 
     // --- GETTERS E SETTERS ---

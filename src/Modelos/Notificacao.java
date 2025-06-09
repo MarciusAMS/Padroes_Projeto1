@@ -12,5 +12,37 @@ public class Notificacao {
         this.destinatario = destinatario;
         this.dataEnvio = java.time.LocalDateTime.now();
     }
-    // getters...
+    // --- GETTERS E SETTERS ---
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public Aluno getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(Aluno destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    public LocalDateTime getDataEnvio() {
+        return dataEnvio;
+    }
+
+    public void setDataEnvio(LocalDateTime dataEnvio) {
+        this.dataEnvio = dataEnvio;
+    }
+
+    public boolean isLida() {
+        return lida;
+    }
+
+    public void setLida(boolean lida) {
+        this.lida = lida;
+    }
 }

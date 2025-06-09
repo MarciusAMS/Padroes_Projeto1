@@ -30,8 +30,8 @@ public class PlataformaEAD {
     }
 
     // Métodos simplificados da fachada
-    public Aluno criarAluno(String nome, String email, String cpf) {
-        Aluno aluno = new Aluno(proximoAlunoId, nome, email, cpf);
+    public Aluno criarAluno(int id, String nome, String email) {
+        Aluno aluno = new Aluno(proximoAlunoId, nome, email);
         aluno.setEstrategiaProgresso(new ProgressoLinearStrategy()); // Define a estratégia padrão
         alunos.put(proximoAlunoId, aluno);
         proximoAlunoId++;
@@ -39,8 +39,8 @@ public class PlataformaEAD {
         return aluno;
     }
 
-    public Modulo criarModulo(String titulo, String descricao) {
-        Modulo modulo = new Modulo(proximoModuloId, titulo, descricao);
+    public Modulo criarModulo(int id, String titulo, float cargaHoraria) {
+        Modulo modulo = new Modulo(proximoModuloId, titulo, cargaHoraria);
         modulos.put(proximoModuloId, modulo);
         proximoModuloId++;
         System.out.println("LOG [Facade]: Módulo " + titulo + " criado com sucesso.");
@@ -48,11 +48,13 @@ public class PlataformaEAD {
     }
 
     // Usa o Flyweight internamente
-    public void adicionarConteudoAoModulo(int moduloId, String tituloConteudo, String urlConteudo) {
+    public void adicionarConteudoAoModulo(int moduloId, String tituloConteudo, String descricaoConteudo, String tipoConteudo, String urlConteudo) {
         Modulo modulo = modulos.get(moduloId);
         if (modulo != null) {
-            Conteudo conteudo = ConteudoFactory.getConteudo(tituloConteudo, urlConteudo);
+            // CHAMADA CORRIGIDA: Passa todos os argumentos para a Factory
+            Conteudo conteudo = ConteudoFactory.getConteudo(tituloConteudo, descricaoConteudo, tipoConteudo, urlConteudo);
             modulo.adicionarConteudo(conteudo);
+            System.out.println("LOG [Facade]: Conteúdo '" + tituloConteudo + "' adicionado ao módulo '" + modulo.getTitulo() + "'.");
         }
     }
 
@@ -75,9 +77,9 @@ public class PlataformaEAD {
     public Aluno getAluno(int id) {
         return alunos.get(id);
     }
-
-
-    private List<Observer> observers = new ArrayList<>();
+    public Modulo getModulo(int id) {
+        return modulos.get(id);
+    }
 
     public void addObserver(Observer observer) {
         observers.add(observer);
