@@ -1,8 +1,5 @@
 import Classes.Aluno;
-import Classes.CorrecaoAutomatica;
-import Classes.CorrecaoManual;
 import Classes.Facade.PlataformaEAD;
-import Classes.MaterialDidatico;
 
 public class Main {
     public static void main(String[] args) {
