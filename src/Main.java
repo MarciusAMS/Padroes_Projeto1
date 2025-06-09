@@ -1,25 +1,40 @@
-import Classes.Aluno;
-import Classes.Facade.PlataformaEAD;
-import Classes.Modulo;
-import Classes.Notificacao;
+package src;
+
+import Modelos.Aluno;
+import Padroes.Facade.PlataformaEAD;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("--- Iniciando Simulação da Plataforma EAD ---\n");
+
+        // 1. O cliente interage apenas com a FACADE
         PlataformaEAD plataforma = new PlataformaEAD();
 
-        Aluno aluno1 = new Aluno(1, "Samara Queiroz", "samara@gmail.com","999999999", "19999999");
-        Aluno aluno2 = new Aluno(2,"Pedro Romão", "pedro@gmail.com", "0000000000", "212992929");
-//        MaterialDidatico material = new MaterialDidatico("padroes_java.pdf");
-        Modulo modulo = plataforma.criarModulo("Padrões de Projeto Java", "Aula 1", 6);
+        // 2. Usando a Facade para criar alunos e módulos
+        Aluno aluno1 = plataforma.criarAluno("João Silva", "joao@email.com", "111.111.111-11");
+        Aluno aluno2 = plataforma.criarAluno("Maria Souza", "maria@email.com", "222.222.222-22");
+        plataforma.criarModulo("Java Básico", "Introdução à linguagem Java.");
+        plataforma.criarModulo("Design Patterns", "Padrões de projeto GoF.");
 
-        plataforma.matricularAluno(aluno1, modulo);
-        plataforma.matricularAluno(aluno2, modulo);
+        System.out.println("\n--- Demonstração do Flyweight ---");
+        // 3. Adicionando conteúdo. Note como o conteúdo reutilizável é tratado.
+        plataforma.adicionarConteudoAoModulo(1, "Vídeo de Instalação", "http://videos.com/instalar-jdk");
+        plataforma.adicionarConteudoAoModulo(2, "Vídeo de Instalação", "http://videos.com/instalar-jdk"); // <-- Reutilização!
 
-        Notificacao notificacao1 = new Notificacao("Por favor verifique.", aluno1);
-        Notificacao notificacao2 = new Notificacao("Por favor verifique. 2", aluno2);
+        System.out.println("\n--- Demonstração do Observer ---");
+        // 4. Matriculando um aluno. Isso vai disparar o Observer de Notificação.
+        plataforma.matricularAluno(aluno1.getId(), 1); // João no Java Básico
+        plataforma.matricularAluno(aluno1.getId(), 2); // João no Design Patterns
 
-        plataforma.enviarNotificacao(notificacao1);
+        System.out.println("\n--- Demonstração do Strategy ---");
+        // 5. Usando a Strategy para atualizar o progresso do aluno.
+        System.out.println("Progresso inicial do João: " + aluno1.getProgresso() + "%");
+        aluno1.atualizarProgresso(plataforma.getModulo(1), 15.5f);
+        System.out.println("Progresso do João após estudar Java: " + aluno1.getProgresso() + "%");
 
-        aluno1.visualizarNotificacoes();
+        System.out.println("\n--- Verificando o resultado ---");
+        // Verificando as notificações do aluno1 (criadas pelo Observer)
+        System.out.println("Notificações de " + aluno1.getNome() + ":");
+        aluno1.getNotificacoes().forEach(n -> System.out.println("- " + n.getMensagem()));
     }
 }
