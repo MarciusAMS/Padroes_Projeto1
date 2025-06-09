@@ -24,17 +24,24 @@ public class Main {
         System.out.println("\n--- Demonstração do Observer ---");
         // 4. Matriculando um aluno. Isso vai disparar o Observer de Notificação.
         plataforma.matricularAluno(aluno1.getId(), 1); // João no Java Básico
-        plataforma.matricularAluno(aluno1.getId(), 2); // João no Design Patterns
+        plataforma.matricularAluno(aluno2.getId(), 2); // João no Design Patterns
 
         System.out.println("\n--- Demonstração do Strategy ---");
         // 5. Usando a Strategy para atualizar o progresso do aluno.
-        System.out.println("Progresso inicial do João: " + aluno1.getProgresso() + "%");
+        System.out.println("Progresso inicial do " + aluno1.getNome() + ": " + aluno1.getProgresso() + "%");
         aluno1.atualizarProgresso(plataforma.getModulo(1), 15.5f);
-        System.out.println("Progresso do João após estudar Java: " + aluno1.getProgresso() + "%");
+        System.out.println("Progresso após estudar Java: " + aluno1.getProgresso() + "%");
+
+        System.out.println("Progresso inicial do " + aluno2.getNome() + ": " + aluno2.getProgresso() + "%");
+        aluno2.atualizarProgresso(plataforma.getModulo(2), 15.5f);
+        System.out.println("Progresso após estudar Java: " + aluno2.getProgresso() + "%");
 
         System.out.println("\n--- Verificando o resultado ---");
         // Verificando as notificações do aluno1 (criadas pelo Observer)
         System.out.println("Notificações de " + aluno1.getNome() + ":");
         aluno1.getNotificacoes().forEach(n -> System.out.println("- " + n.getMensagem()));
+
+        System.out.println("Notificações de " + aluno2.getNome() + ":");
+        aluno2.getNotificacoes().forEach(n -> System.out.println("- " + n.getMensagem()));
     }
 }
