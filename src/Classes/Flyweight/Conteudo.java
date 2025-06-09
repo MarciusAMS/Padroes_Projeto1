@@ -1,11 +1,11 @@
 package Classes.Flyweight;
 
 public class Conteudo {
-    private final int id;
-    private final String titulo;
-    private final String descricao;
-    private final String tipo;
-    private final String url;
+    private  int id;
+    private String titulo;
+    private String descricao;
+    private String tipo;
+    private String url;
 
     public Conteudo(int id, String titulo, String descricao, String tipo, String url) {
         this.id = id;

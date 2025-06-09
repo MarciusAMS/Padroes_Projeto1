@@ -36,6 +36,8 @@
 //    }
 //}
 
+package Classes;
+import Classes.Flyweight.Conteudo;
 
 import java.util.ArrayList;
 import java.util.List;

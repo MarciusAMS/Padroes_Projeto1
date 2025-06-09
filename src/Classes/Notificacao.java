@@ -1,3 +1,5 @@
+package Classes;
+import Classes.Aluno;
 import java.time.LocalDateTime;
 
 public class Notificacao {
@@ -8,8 +10,7 @@ public class Notificacao {
     private boolean lida;
 
     // Construtor
-    public Notificacao(int id, String mensagem, Aluno destinatario) {
-        this.id = id;
+    public Notificacao(String mensagem, Aluno destinatario) {
         this.mensagem = mensagem;
         this.destinatario = destinatario;
         this.dataEnvio = LocalDateTime.now();

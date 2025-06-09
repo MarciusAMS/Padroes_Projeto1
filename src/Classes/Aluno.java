@@ -1,7 +1,10 @@
+package Classes;
+import Interfaces.Observer.Observer;
+import Interfaces.Strategy.AtualizacaoProgresso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Aluno {
+public class Aluno implements Observer {
     private int id;
     private String nome;
     private String email;
@@ -13,7 +16,7 @@ public class Aluno {
     private AtualizacaoProgresso atualizador;
     private List<Notificacao> notificacoes;
 
-    public Aluno(int id, String nome, String email, String cpf, String numero, AtualizacaoProgressoStrategy atualizador) {
+    public Aluno(int id, String nome, String email, String cpf, String numero) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -38,7 +41,7 @@ public class Aluno {
 
     public void atualizarProgresso(Modulo modulo, float progresso) {
         if (atualizador != null) {
-            atualizador.atualizar(this, modulo, progresso);
+            atualizador.atualizar(this, modulo);
         }
     }
 
@@ -58,4 +61,9 @@ public class Aluno {
     public String getNome() { return nome; }
     public float getProgresso() { return progresso; }
     public void setProgresso(float progresso) { this.progresso = progresso; }
+
+    @Override
+    public void update() {
+        System.out.println("Notificação rebebida por: " + nome);
+    }
 }
