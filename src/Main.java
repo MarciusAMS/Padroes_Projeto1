@@ -33,7 +33,7 @@ public class Main {
         System.out.println("Progresso após estudar Java: " + aluno1.getProgresso() + "%");
 
         System.out.println("Progresso inicial do " + aluno2.getNome() + ": " + aluno2.getProgresso() + "%");
-        aluno2.atualizarProgresso(plataforma.getModulo(2), 15.5f);
+        aluno2.atualizarProgresso(plataforma.getModulo(2), 30.0f);
         System.out.println("Progresso após estudar Java: " + aluno2.getProgresso() + "%");
 
         System.out.println("\n--- Verificando o resultado ---");
