@@ -126,7 +126,7 @@ public class PlataformaEAD {
 
     // A própria fachada expõe os métodos para gerenciar os observers,
     // embora a notificação em si seja escondida dentro de outros métodos.
-    
+
     public void addObserver(Observer observer) {
         observers.add(observer);
     }
@@ -134,6 +134,8 @@ public class PlataformaEAD {
     public void removeObserver(Observer observer) {
         observers.remove(observer);
     }
+
+    // Neste caso o 'Subject' será este método definido na PlataformaEAD.
 
     public void notifyObservers(String eventType, Object data) {
         for (Observer observer : observers) {
