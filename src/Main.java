@@ -23,8 +23,8 @@ public class Main {
 
         System.out.println("\n--- Demonstração do Observer ---");
         // 4. Matriculando um aluno. Isso vai disparar o Observer de Notificação.
-        plataforma.matricularAluno(aluno1.getId(), 1); // João no Java Básico
-        plataforma.matricularAluno(aluno2.getId(), 2); // João no Design Patterns
+        plataforma.matricularAluno(aluno1.getId(), 1);
+        plataforma.matricularAluno(aluno2.getId(), 2);
 
         System.out.println("\n--- Demonstração do Strategy ---");
         // 5. Usando a Strategy para atualizar o progresso do aluno.
