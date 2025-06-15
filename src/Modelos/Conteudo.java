@@ -7,7 +7,6 @@ package Modelos;
  */
 public class Conteudo {
 
-    // --- CAMPOS ---
     // Todos os campos são 'final' para garantir a imutabilidade.
     private final int id;
     private final String titulo;
@@ -15,7 +14,6 @@ public class Conteudo {
     private final String tipo; // Ex: "video", "pdf", "quiz"
     private final String url;
 
-    // --- CONSTRUTOR ---
     // O construtor é a única forma de definir os valores dos campos.
     public Conteudo(int id, String titulo, String descricao, String tipo, String url) {
         this.id = id;
@@ -25,7 +23,6 @@ public class Conteudo {
         this.url = url;
     }
 
-    // --- GETTERS ---
     // Fornecemos apenas getters, pois os dados não podem ser alterados após a criação.
 
     public int getId() {

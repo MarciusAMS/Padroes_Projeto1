@@ -77,8 +77,6 @@ public class PlataformaEAD {
         return modulo;
     }
 
-
-
     /**
      * Simplifica a adição de conteúdo a um módulo.
      * Este método esconde o uso do padrão Flyweight (ConteudoFactory).
@@ -88,7 +86,6 @@ public class PlataformaEAD {
     public void adicionarConteudoAoModulo(int moduloId, String tituloConteudo, String descricaoConteudo, String tipoConteudo, String urlConteudo) {
         Modulo modulo = modulos.get(moduloId);
         if (modulo != null) {
-            // CHAMADA CORRIGIDA: Passa todos os argumentos para a Factory
             Conteudo conteudo = ConteudoFactory.getConteudo(tituloConteudo, descricaoConteudo, tipoConteudo, urlConteudo);
             modulo.adicionarConteudo(conteudo);
             System.out.println("LOG [Facade]: Conteúdo '" + tituloConteudo + "' adicionado ao módulo '" + modulo.getTitulo() + "'.");

@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
  * No padrão Observer, este é o objeto criado pelo Observer concreto
  * (ServicoDeNotificacao) como resultado de um evento.
  */
+
 public class Notificacao {
     private String mensagem;
     private Aluno destinatario;

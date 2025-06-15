@@ -18,6 +18,7 @@ public class Modulo {
      * Esta é a conexão principal com o padrão Flyweight. Os objetos 'Conteudo'
      * nesta lista são os flyweights compartilhados.
      */
+
     private List<Conteudo> conteudos = new ArrayList<>();
 
     /**
